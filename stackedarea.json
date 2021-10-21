@@ -55,11 +55,7 @@
     "title":"Australia",
     "layer":[{
     "mark": "area",
-        "params": [{
-        "name": "Age",
-        "select": {"type": "point", "fields": ["Age"]},
-        "bind": "legend"
-      }],
+     
     "encoding": {
       "x": {"type": "ordinal", "field":"Year"        },
       "y": {
