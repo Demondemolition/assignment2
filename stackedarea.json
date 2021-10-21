@@ -8,6 +8,11 @@
       "title":"World",
       "layer":[{
       "mark": "area",
+      "params": [{
+        "name": "Age",
+        "select": {"type": "point", "fields": ["Age"]},
+        "bind": "legend"
+      }],
       "encoding": {
         "x": {"type": "ordinal", "field":"Year"        },
         "y": {
@@ -23,7 +28,11 @@
       "tooltip":[
         {"field": "Year", "type": "nominal", "title": "Year "},
         {"field": "rate", "type": "quantitative", "title": "Suicide Rate"}
-      ]
+      ],
+    "opacity": {
+      "condition": {"param": "Age", "value": 1},
+      "value": 0.2
+    }
       }
     },
     {
