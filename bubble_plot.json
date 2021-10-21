@@ -1,0 +1,68 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "A bubble plot showing the correlation between health and income for 187 countries in the world (modified from an example in Lisa Charlotte Rost's blog post 'One Chart, Twelve Charting Libraries' --http://lisacharlotterost.github.io/2016/05/17/one-chart-code/).",
+    "height": 350,
+    "width": "container",
+    "background":"#cae8faef",
+    "data": {
+      "url": "fff.csv"
+    },
+    "params": [
+
+        {
+          "name": "Population_Above",
+          "value": 0,
+          "bind": {
+            "input": "range",
+            "min": 0,
+            "max": 100000000,
+            "step": 1000000,
+            "name": "Minimum Population: "
+          }
+        }],
+    "transform": [
+            {"filter": "datum.population > Population_Above"}],
+    "mark": "circle",
+    "encoding": {
+      "y": {
+        "field": "change in suicide",
+        "type": "quantitative",
+
+        "axis": {"minExtent": 30},
+        "title": "% change in annual suicide rate from 1990 to 2017"
+      },
+      "x": {
+        "field": "change in depression",
+        "type": "quantitative",
+        "scale": {"zero": false},
+        "axis": {"minExtent": 30},
+        "title": "% change in annual depression rate from 1990 to 2017"
+          },
+          "size": {
+            "field": "population",
+            "type": "quantitative",
+            "scale": {
+              "type": "threshold",
+              "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+              "range": [20, 40, 60, 100, 150, 200]
+            },
+            "legend": {"format": ".1s"}
+          },
+      
+      "color": {"value": "#000"},
+      "tooltip":[
+        {
+            "field":"Entity","type":"ordinal", "title": "Country"
+          },
+          {
+            "field":"population","type":"quantitative","format": ".4s", "title": "Population"
+          },
+          {
+            "field":"change in suicide","type":"quantitative","format": ".4s"
+          },
+          {
+            "field":"change in depression","type":"quantitative","format": ".4s"
+          }
+      ]
+    }
+  }

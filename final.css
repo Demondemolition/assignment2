@@ -1,0 +1,26 @@
+html,
+body {
+    background-color: #cae8faef;
+}
+.bigger {font-size: 150%;}
+
+.title{ font-family: 'Franklin Gothic Medium'; text-align: center;}
+
+.column {
+    font-family: 'Franklin Gothic Medium'; text-align: justify;color: rgb(77, 75, 75); line-height: 175%; 
+    padding: 10pt;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+.map{ width: 100%;}
+.mapTitle{font-family: 'Franklin Gothic Medium';font-size: 150%; text-align: center;color: rgb(0, 0, 0);}
+.test{text-align: center; display: block;}
+.remove{color: #cae8faef;}
+.Areatitle{font-family: 'Franklin Gothic Medium';font-size: 150%; text-align: center;color: rgb(0, 0, 0);}
+.vis-container{ width: 100%;}
+.male{color:orange;}
+.female{color:red;}

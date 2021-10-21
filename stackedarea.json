@@ -1,0 +1,83 @@
+    {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "background":"#cae8faef",
+      "hconcat":[{
+      "height": 350,
+      "width":"container",
+      "data": {"url": "Ages.json"},
+      "title":"World",
+      "layer":[{
+      "mark": "area",
+      "encoding": {
+        "x": {"type": "ordinal", "field":"Year"        },
+        "y": {
+          "aggregate":"mean",
+          "field": "rate",
+          "title":"Suicide Deaths per 100,000 people",
+          "scale":{"domain":[0,100]}
+        },
+        "color": {
+          "field": "Age",
+          "scale": {"scheme": "category20b"}
+        },
+      "tooltip":[
+        {"field": "Year", "type": "nominal", "title": "Year "},
+        {"field": "rate", "type": "quantitative", "title": "Suicide Rate"}
+      ]
+      }
+    },
+    {
+      "mark":{"type": "text",
+      "align": "right",
+          "baseline": "top",
+          "dx": -2,
+          "dy": -140,
+          "x": "width",
+          "fontWeight":"lighter",
+          "fontSize":15,
+          "text": "Higher rate for over 70"}
+
+    }
+  ]},
+  {
+    "height": 350,
+    "width":"container",
+    "data": {"url": "AgeAus.json"},
+    "title":"Australia",
+    "layer":[{
+    "mark": "area",
+    "encoding": {
+      "x": {"type": "ordinal", "field":"Year"        },
+      "y": {
+        "aggregate":"mean",
+        "field": "rate",
+        "title":"Suicide Deaths per 100,000 people",
+        "scale":{"domain":[0,100]}
+            },
+      "color": {
+        "field": "Age",
+        "scale": {
+          "range": ["#f304d3","#f304d3","#f304d3","#f304d3"]
+        }      
+      },
+      "tooltip":[
+        {"field": "Year", "type": "nominal", "title": "Year "},
+        {"field": "rate", "type": "quantitative", "title": "Suicide Rate"}
+      ]
+    }
+  },
+  {
+    "mark":{"type": "text",
+    "align": "right",
+        "baseline": "top",
+        "dx": -2,
+        "dy": -100,
+        "x": "width",
+        "fontWeight":"lighter",
+        "fontSize":15,
+        "text": "Higher rate amongst 15 to 49"}
+
+  }
+]}
+]
+}

@@ -1,0 +1,53 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "height": 350,
+    "width":"container",
+    "background":"#cae8faef",
+    "data": {
+      "url": "collate.csv"
+    },
+    "params": [
+        {
+        "name": "Country_selection",
+        "bind": {
+        "input": "select",
+        "options": [
+            "Afghanistan","Australia","Bangladesh","Brazil","Australia","Chad","Chile","Colombia","China","Ecuador","Egypt","France","Germany","Greenland","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Lesotho","Mexico","Namibia","Nepal","Netherlands","New Zealand","Pakistan","Portugal","Russia","South Africa","Spain","Sri Lanka","United Arab Emirates","United Kingdom","United States","Zimbabwe"
+        ],
+        "labels":[
+            "Afghanistan","Australia","Bangladesh","Brazil","Australia","Chad","Chile","Colombia","China","Ecuador","Egypt","France","Germany","Greenland","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Lesotho","Mexico","Namibia","Nepal","Netherlands","New Zealand","Pakistan","Portugal","Russia","South Africa","Spain","Sri Lanka","United Arab Emirates","United Kingdom","United States","Zimbabwe"
+        ],
+        "name": "Country Selection: "
+        }
+        }
+        ],
+        "transform": [
+        {"filter": "datum.Entity ==Country_selection"}
+        ],
+    "repeat": {
+      "layer": ["Both", "Male", "Female"]
+    },
+    "spec": {
+      "mark": "line",
+      "encoding": {
+        "x": {
+          "field": "Year",
+          "type": "ordinal"
+        },
+        "y": {
+          "aggregate": "mean",
+          "field": {"repeat": "layer"},
+          "type": "quantitative",
+          "title": "Age-Standardized Suicide Rate"
+        },
+        "color": {
+          "datum": {"repeat": "layer"},
+          "type": "nominal"
+        },
+        "tooltip":[
+        {"field": "Year", "type": "ordinal", "title": "Year "},
+        {"field": {"repeat": "layer"}, "type": "quantitative", "title": "Suicide Rate"}
+      ]
+      }
+    }
+  }
